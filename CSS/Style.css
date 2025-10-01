@@ -21,6 +21,11 @@
   box-sizing: border-box;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
+
 body {
   font-family: "Poppins", sans-serif;
   background: var(--gray-light);
@@ -618,3 +623,4 @@ a {
     padding-bottom: 1px;
   }
 }
+
