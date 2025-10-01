@@ -1,0 +1,620 @@
+/* ==================== Variables Globales ==================== */
+:root {
+  /* Paleta de colores verdes */
+  --primary-green: #2ecc71;
+  --dark-green: #27ae60;
+  --light-green-gradient-start: #a3e635; /* Verde claro para gradientes */
+  --light-green-gradient-end: #2ecc71; /* Verde principal para gradientes */
+  --gray-light: #f5f5f5;
+  --gray-medium: #e0e0e0;
+  --gray-dark: #333;
+  --white: #fff;
+  --text-color-light: #555;
+  --whatsapp-green: #25d366;
+  --whatsapp-green-hover: #1ebe5d;
+}
+
+/* ==================== Reset Básico y Tipografía ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--gray-light);
+  color: var(--gray-dark);
+  line-height: 1.6;
+  font-size: clamp(1rem, 1vw + 0.5rem, 1.125rem);
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  color: var(--gray-dark);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ==================== Banner Principal ==================== */
+.banner {
+  background: url("../IMG/BANNER/Baner.jpg") no-repeat center/cover;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--white);
+  position: relative;
+}
+
+.banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.banner-content {
+  position: relative;
+  z-index: 1;
+  background: rgba(168, 168, 168, 0.5);
+  backdrop-filter: blur(6px);
+  padding: 40px 50px;
+  border-radius: 12px;
+  max-width: 650px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.banner-content h1 {
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: fadeDown 1.2s ease-in-out;
+}
+
+.banner-content p {
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  margin-bottom: 20px;
+}
+
+.btn-green {
+  display: inline-block;
+  padding: 12px 25px;
+  background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+  color: var(--white);
+  border-radius: 30px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-green:hover {
+  background: linear-gradient(135deg, var(--dark-green), #1e8449);
+  transform: scale(1.05);
+}
+
+.btn-green:focus-visible {
+  outline: 2px solid var(--primary-green);
+  outline-offset: 2px;
+}
+
+/* ==================== Sección de Productos ==================== */
+.prods-section {
+  padding: 60px 20px;
+  text-align: center;
+  background: var(--white);
+}
+
+.prods-section h2 {
+  font-size: 2rem;
+  color: var(--primary-green);
+  border-bottom: 3px solid var(--primary-green);
+  padding-bottom: 8px;
+  display: inline-block;
+}
+
+.prods-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.prods-item {
+  background: var(--gray-light);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.prods-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.prods-content img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.prods-text {
+  padding: 15px;
+}
+
+.prods-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  background: var(--white);
+}
+
+.prods-price {
+  font-weight: bold;
+  color: var(--primary-green);
+  font-size: 1.1rem;
+}
+
+.prods-whatsapp-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--whatsapp-green);
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: var(--white);
+  transition: all 0.3s ease;
+}
+
+.prods-whatsapp-btn:hover {
+  background: var(--whatsapp-green-hover);
+  transform: scale(1.05);
+}
+
+.prods-whatsapp-btn:focus-visible {
+  outline: 2px solid var(--whatsapp-green);
+  outline-offset: 2px;
+}
+
+.prods-whatsapp-btn img {
+  width: 20px;
+}
+
+.prods-title {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-green);
+  white-space: nowrap;
+  overflow: hidden;
+
+  /* Escritura + cursor */
+  animation: typing 1s linear forwards, blink 0.7s step-end infinite;
+}
+
+/* Escritura suave */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Cursor parpadeante */
+
+/* Línea debajo que aparece después */
+.prods-title::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  height: 3px;
+  background: var(--primary-green);
+  width: 0;
+  border-radius: 2px;
+  animation: underline 1s ease forwards;
+  animation-delay: 1s; /* espera a que termine la escritura */
+}
+
+@keyframes underline {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* ==================== Animaciones ==================== */
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==================== Responsividad ==================== */
+@media (max-width: 768px) {
+  .prods-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-content {
+    padding: 20px;
+  }
+
+  .prods-section h2 {
+    font-size: 1.5rem;
+  }
+}
+/* ==================== Sección Sobre Nosotros - Base ==================== */
+.about-ion {
+  padding: 60px 20px;
+  background: #f9fafb;
+  text-align: center;
+  padding-top: 40px;
+}
+
+/*efecto de escritura ---*/
+.sobren-title {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-green);
+  white-space: nowrap;
+  overflow: hidden;
+
+  /* Escritura + cursor */
+  animation: typing 1s linear forwards, blink 0.7s step-end infinite;
+}
+
+/* Escritura suave */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Cursor parpadeante */
+
+/*---*/
+
+.about-banner h2 {
+  font-size: 2.2rem;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.about-banner p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+}
+
+/* ==================== Historia ==================== */
+.about-story {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  max-width: 1300px;
+  margin: 0 auto 60px auto;
+  flex-wrap: wrap; /* Para responsive */
+}
+
+/* Asegura que la imagen sea funcional en móviles */
+.story-image {
+  max-width: 450px;
+  flex-shrink: 0;
+}
+
+.story-image img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.story-text {
+  flex: 1;
+  text-align: left;
+}
+
+.story-text h3 {
+  font-size: 1.8rem;
+  color: #15803d; /* Cambiado a un color verde para conectar con el tema natural */
+  margin-bottom: 15px;
+}
+
+.story-text p {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* ==================== Visión y Misión (Añadir estilos para iconos) ==================== */
+.about-vision-mission {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  max-width: 1300px;
+  margin: 0 auto 60px auto; /* Añadida separación inferior */
+  flex-wrap: wrap;
+}
+
+.vision-box,
+.mission-box {
+  background: #fff;
+  padding: 30px; /* Aumentado padding */
+  border-radius: 12px;
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 5px solid #15803d; /* Borde de color para destacar */
+}
+
+.vision-box:hover,
+.mission-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.box{
+  border-left: 5px solid #15803d;
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.vision-box h3,
+.mission-box h3 {
+  color: #15803d;
+  margin-bottom: 10px;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Estilo para los iconos de Font Awesome */
+.vision-box h3 i,
+.mission-box h3 i {
+  font-size: 1.4rem;
+  margin-right: 10px;
+  color: #15803d;
+}
+
+/* ==================== NUEVO: Nuestros Valores ==================== */
+.about-values {
+  max-width: 1300px;
+  margin: 40px auto 70px auto; /* Espacio antes del CTA */
+  text-align: center;
+}
+
+.about-values h2 {
+  font-size: 2rem;
+  color: #222;
+  margin-bottom: 40px;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  ); /* 3 columnas responsivas */
+  gap: 30px;
+}
+
+.value-item {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Estilo para los iconos de los valores */
+.value-item i {
+  font-size: 2.5rem;
+  color: #15803d; /* Color primario verde */
+  margin-bottom: 15px;
+}
+
+.value-item h4 {
+  font-size: 1.25rem;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.value-item p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* ==================== Media Queries para Responsividad ==================== */
+
+@media (max-width: 1000px) {
+  /* Ajuste de Historia para apilar en móviles */
+  .about-story {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .story-image {
+    max-width: 100%; /* La imagen ocupa todo el ancho */
+  }
+
+  .story-image img {
+    max-width: 100%;
+  }
+
+  .story-text {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Ajuste de Visión y Misión para apilar en móviles */
+  .about-vision-mission {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+/* ==================== Sección Ubicación ==================== */
+.location-section {
+  padding: 20px 20px;
+  background: #effeed;
+}
+
+.TT {
+  text-align: center;
+  margin-top: 2px;
+  padding: 25px;
+}
+.section-title1 {
+  position: relative; /* Necesario para que ::after se posicione */
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-green);
+  white-space: nowrap;
+  overflow: hidden;
+
+  animation: typing 3s linear forwards;
+}
+
+/* Animación escritura */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.location-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  max-width: 1320px;
+  margin: 0 auto;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* Detalles de ubicación */
+.location-details {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #374151;
+}
+
+.location-details strong {
+  color: #111;
+}
+.location-details a {
+  margin-top: 20px;
+}
+
+/* Carrusel */
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-slide {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide img {
+  width: 100%;
+  flex-shrink: 0;
+  border-radius: 12px;
+}
+
+.carousel-container button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.carousel-container button:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-container .prev {
+  left: 15px;
+}
+
+.carousel-container .next {
+  right: 15px;
+}
+
+.location-visual-reference h3 {
+  text-align: center;
+  margin-top: 15px;
+  color: #1e293b;
+}
+
+/* ==================== Responsive ==================== */
+@media (max-width: 992px) {
+  .about-story {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .story-text {
+    text-align: center;
+  }
+
+  .about-vision-mission {
+    grid-template-columns: 1fr;
+  }
+
+  .location-content-grid {
+    grid-template-columns: 1fr;
+  }
+  .location-details {
+    text-align: center;
+    padding-bottom: 1px;
+  }
+}
