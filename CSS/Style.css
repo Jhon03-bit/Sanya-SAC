@@ -21,10 +21,10 @@
   box-sizing: border-box;
 }
 
-html, body {
+
+.wrapper {
   overflow-x: hidden;
 }
-
 
 body {
   font-family: "Poppins", sans-serif;
@@ -211,31 +211,6 @@ a {
 
 /* Escritura suave */
 @keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-/* Cursor parpadeante */
-
-/* Línea debajo que aparece después */
-.prods-title::after {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  height: 3px;
-  background: var(--primary-green);
-  width: 0;
-  border-radius: 2px;
-  animation: underline 1s ease forwards;
-  animation-delay: 1s; /* espera a que termine la escritura */
-}
-
-@keyframes underline {
   from {
     width: 0;
   }
@@ -623,4 +598,3 @@ a {
     padding-bottom: 1px;
   }
 }
-
